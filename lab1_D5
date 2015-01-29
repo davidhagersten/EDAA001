@@ -1,0 +1,43 @@
+package set;
+
+import java.util.ArrayList;
+import java.util.Iterator;
+
+public class lab1_D5 {
+
+	public lab1_D5() {
+
+	}
+
+	public static int[] uniqueElements(int[] ints) {
+		MaxSet<Integer> set = new MaxSet<Integer>();
+		for (int i = 0; i < ints.length; i++) {
+			set.add(ints[i]);
+		}
+		int[] newints = new int[set.size()];
+		for (int i = newints.length - 1; i >= 0; i--) {
+			newints[i] = set.getMax();
+			set.remove(set.getMax());
+		}
+		return newints;
+	}
+
+	public static void main(String[] args) {
+		int[] ints = new int[7];
+		ints[0] = 7;
+		ints[1] = 5;
+		ints[2] = 3;
+		ints[3] = 5;
+		ints[4] = 2;
+		ints[5] = 2;
+		ints[6] = 7;
+//		System.out.println(ints);
+		System.out.println("he");
+		int[] res = uniqueElements(ints);
+		System.out.println("l");
+		for(int t : res) {
+			System.out.print(t + " ");
+		}
+		System.out.println(uniqueElements(ints).toString());
+	}
+}
