@@ -12,6 +12,7 @@ public class MaxSet<E extends Comparable<E>> extends ArraySet<E> {
 	public MaxSet() {
 		super();
 	}
+
 	/**
 	 * Returns the currently largest element in this set. pre: the set is not
 	 * empty post: the set is unchanged
@@ -57,18 +58,22 @@ public class MaxSet<E extends Comparable<E>> extends ArraySet<E> {
 	 * @return true if the set contained the specified element
 	 */
 	public boolean remove(Object x) {
+		E a;
 		if (data.contains(x)) {
 			if (x.equals(maxElement)) {
 				data.remove(x);
 				if (!data.isEmpty()) {
 					maxElement = super.data.get(0);
-					for (int i = 0; i < super.data.size(); i++) {
-						E a = super.data.iterator().next();
+					int b = super.data.size();
+					for (int i = 1; i < b; i++) {
+						a = super.data.get(i);
 						if (maxElement.compareTo(a) < 0) {
 							maxElement = a;
 						}
 					}
 				}
+			}else {
+				data.remove(x);
 			}
 			return true;
 		} else {
