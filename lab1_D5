@@ -31,13 +31,11 @@ public class lab1_D5 {
 		ints[4] = 2;
 		ints[5] = 2;
 		ints[6] = 7;
-//		System.out.println(ints);
-		System.out.println("he");
+
 		int[] res = uniqueElements(ints);
-		System.out.println("l");
 		for(int t : res) {
-			System.out.print(t + " ");
+			System.out.print("\n"+ t);
 		}
-		System.out.println(uniqueElements(ints).toString());
+		
 	}
 }
